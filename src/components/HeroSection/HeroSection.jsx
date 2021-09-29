@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Video from '../../videos/video.mp4'
-import { HeroContainer, HeroBg, VideoBg } from './HeroElements'
+import { Button } from '../ButtonElements'
+import {
+  HeroContainer,
+  HeroBg,
+  VideoBg,
+  HeroContent,
+  HeroH1,
+  HeroP,
+  HeroBtnWrapper,
+  ArrowForward,
+  ArrowRight
+} from './HeroElements'
 
 const HeroSection = () => {
+  const [hover, setHover] = useState(false)
+
+  const onHover = () => {
+    setHover(!hover)
+  }
+
   return (
     <HeroContainer>
       <HeroBg>
@@ -21,7 +38,7 @@ const HeroSection = () => {
           eviecer dna yadot tnuocca wen a rof pu ngis.
         </HeroP>
         <HeroBtnWrapper>
-          <Button to="signup">
+          <Button to="signup" onMouseEnter={onHover} onMouseLeave={onHover}>
             Get started {hover ? <ArrowForward /> : <ArrowRight />}
           </Button>
         </HeroBtnWrapper>
